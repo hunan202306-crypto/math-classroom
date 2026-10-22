@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="初高中数学学习与教师教学展示网站，提供知识梳理、例题讲解、在线练习与备考指导。">
+<title>数学进阶课堂｜初高中数学教学</title>
+<style>
+:root{--navy:#14264d;--blue:#315ce8;--sky:#edf3ff;--ink:#233454;--muted:#71809b;--line:#e4eaf4;--bg:#f6f8fc;--green:#16845c;--orange:#b66b1c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65}button,input{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--navy);font-weight:800;font-size:19px}.logo{width:42px;height:42px;border-radius:13px;background:var(--blue);color:white;display:grid;place-items:center;font-size:23px;font-weight:800}.navlinks{display:flex;gap:7px;align-items:center}.navlinks a{color:#566581;text-decoration:none;padding:9px 12px;border-radius:10px;font-size:14px}.navlinks a:hover,.navlinks a.active{background:var(--sky);color:var(--blue)}.menuBtn{display:none;border:1px solid var(--line);background:white;border-radius:10px;padding:8px 12px}
+.hero{padding:54px 0 36px;background:radial-gradient(ellipse at 90% 10%,#dce7ff 0,transparent 35%),linear-gradient(130deg,#f9fbff,#eef3ff)}
+.heroGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:38px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--blue);font-size:13px;font-weight:750;background:white;border:1px solid #dce5ff;padding:6px 12px;border-radius:999px}.hero h1{font-size:clamp(34px,5vw,54px);line-height:1.2;letter-spacing:-1.5px;color:var(--navy);margin:18px 0}.hero h1 span{color:var(--blue)}.hero p{color:#63728e;max-width:600px;font-size:16px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:750;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:8px}.primary{background:var(--blue);color:#fff;box-shadow:0 8px 18px #315ce82a}.secondary{background:white;color:var(--navy);border:1px solid var(--line)}.heroCard{background:white;border:1px solid #e1e8f7;border-radius:24px;padding:23px;box-shadow:0 20px 55px #203f9010}.heroCard h3{margin:0 0 5px;color:var(--navy)}.heroCard .sub{color:var(--muted);font-size:13px;margin-bottom:18px}.mathBoard{background:#f3f6ff;border-radius:16px;padding:20px;text-align:center;color:#244bc3}.equation{font-size:27px;font-weight:750;letter-spacing:.3px}.miniGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.mini{border:1px solid var(--line);padding:12px;border-radius:12px}.mini b{display:block;color:var(--navy)}.mini small{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}.stat{background:white;border:1px solid var(--line);border-radius:15px;padding:15px}.stat b{display:block;color:var(--navy);font-size:21px}.stat span{font-size:12px;color:var(--muted)}
+section{padding:46px 0}.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}.kicker{font-size:12px;color:var(--blue);font-weight:800;letter-spacing:1.5px}.sectionHead h2{margin:4px 0 0;color:var(--navy);font-size:29px;line-height:1.3}.sectionHead p{color:var(--muted);font-size:14px;margin:7px 0 0}.gradeTabs{display:flex;gap:8px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:white;color:#5f6e89;border-radius:11px;padding:9px 15px;font-weight:700}.tab.selected{background:var(--blue);border-color:var(--blue);color:white}
+.courseGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.course{background:white;border:1px solid var(--line);border-radius:18px;padding:20px;transition:.2s;display:flex;flex-direction:column;min-height:210px}.course:hover{transform:translateY(-3px);box-shadow:0 12px 28px #203f9010}.courseIcon{width:45px;height:45px;border-radius:13px;background:var(--sky);display:grid;place-items:center;font-size:22px}.course h3{margin:13px 0 5px;color:var(--navy)}.course p{margin:0;color:var(--muted);font-size:13px;flex:1}.course button{margin-top:17px;align-self:flex-start;background:none;border:0;color:var(--blue);font-weight:750;padding:0}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:stretch}.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:24px}.panel h3{margin:0 0 8px;color:var(--navy)}.panel p{color:var(--muted);font-size:14px}.lessonTag{display:inline-block;background:#edf8f2;color:var(--green);border-radius:7px;padding:4px 9px;font-size:12px;font-weight:750}.lessonTitle{font-size:21px;font-weight:800;color:var(--navy);margin:12px 0}.formula{padding:18px;border-radius:14px;background:#f1f5ff;color:#2349b5;text-align:center;font-size:24px;font-weight:750;margin:14px 0}.steps{padding-left:21px;color:#52627f;font-size:14px}.steps li{margin:8px 0}.callout{background:#fff7e9;border:1px solid #f8e7c9;padding:13px;border-radius:12px;color:#80551b;font-size:13px;margin-top:15px}
+.practice{background:var(--navy);color:white;border-radius:23px;padding:27px}.practice h3{font-size:22px;margin:0 0 5px}.practice .muted{color:#c1cce2;font-size:13px}.question{font-size:17px;margin:22px 0}.options{display:grid;gap:10px}.option{background:#ffffff0d;border:1px solid #ffffff35;color:white;text-align:left;padding:12px 14px;border-radius:11px}.option:hover{background:#ffffff18}.option.chosen{border-color:#a9bcff;background:#315ce850}.option.correct{border-color:#78dfae;background:#16845c40}.option.wrong{border-color:#ffc27b;background:#b66b1c40}.feedback{margin-top:15px;padding:13px;border-radius:12px;background:#ffffff12;font-size:14px;display:none}.practiceActions{display:flex;justify-content:space-between;gap:10px;margin-top:18px}.practiceActions button{border:0;border-radius:10px;padding:10px 15px;font-weight:750}.submit{background:#fff;color:var(--navy)}.next{background:#dbe5ff;color:#203f9a}
+.teacherGrid{display:grid;grid-template-columns:.7fr 1.3fr;gap:22px}.teacherVisual{border-radius:20px;background:linear-gradient(145deg,#315ce8,#172c66);color:white;padding:26px;display:flex;flex-direction:column;justify-content:space-between;min-height:280px}.teacherVisual .symbol{font-size:64px;line-height:1;font-weight:800;color:#ffffffbd}.teacherVisual h3{font-size:23px;margin:15px 0 3px}.teacherVisual p{color:#d8e2ff;font-size:13px}.teacherInfo{background:white;border:1px solid var(--line);border-radius:20px;padding:25px}.teacherInfo h3{margin-top:0;color:var(--navy)}.featureList{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:17px}.feature{background:#f7f9fe;border-radius:12px;padding:13px;font-size:13px;color:#586985}.feature b{display:block;color:var(--navy);margin-bottom:3px}
+.cta{background:#eaf0ff;border:1px solid #dce5ff;border-radius:20px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px}.cta h2{margin:0;color:var(--navy)}.cta p{margin:7px 0 0;color:#64738f;font-size:14px}
+footer{background:#101f40;color:#dce5fa;padding:30px 0;margin-top:10px}.footerRow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footerSmall{font-size:12px;color:#9eacc9;margin-top:8px}
+.modal{position:fixed;inset:0;background:#101b35a6;display:none;place-items:center;padding:18px;z-index:50}.modal.open{display:grid}.modalBox{background:white;border-radius:20px;padding:25px;max-width:520px;width:100%;max-height:85vh;overflow:auto}.modalBox h3{color:var(--navy);margin-top:0}.modalBox p,.modalBox li{color:#5d6c87;font-size:14px}.close{float:right;border:0;background:#eef2fa;border-radius:9px;padding:6px 11px}
+@media(max-width:800px){.heroGrid,.split,.teacherGrid{grid-template-columns:1fr}.hero{padding-top:35px}.courseGrid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.navlinks{display:none;position:absolute;top:72px;left:0;right:0;background:white;border-bottom:1px solid var(--line);padding:12px 18px;flex-direction:column;align-items:stretch}.navlinks.open{display:flex}.menuBtn{display:block}.sectionHead{align-items:start;flex-direction:column}.cta{align-items:flex-start;flex-direction:column}}
+@media(max-width:500px){.wrap{width:min(100% - 24px,1120px)}.courseGrid{grid-template-columns:1fr}.heroCard{padding:17px}.panel,.teacherInfo{padding:18px}.hero h1{font-size:35px}.featureList{grid-template-columns:1fr}.equation{font-size:22px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#home"><span class="logo">∑</span><span>数学进阶课堂</span></a>
+<nav class="navlinks" id="navlinks"><a class="active" href="#home">首页</a><a href="#courses">课程体系</a><a href="#lesson">示范课堂</a><a href="#practice">在线练习</a><a href="#teacher">教师介绍</a></nav>
+<button class="menuBtn" id="menuBtn" aria-label="打开导航">☰ 菜单</button>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="wrap">
+<div class="heroGrid"><div>
+<span class="eyebrow">✦ 面向初中 · 高中学生</span>
+<h1>让数学学习<br><span>更有方法，更有信心。</span></h1>
+<p>从基础概念到综合解题，从课堂学习到考前复习。用清晰的知识体系、循序渐进的例题和有针对性的训练，帮助学生真正理解数学。</p>
+<div class="actions"><a class="btn primary" href="#courses">探索课程　→</a><a class="btn secondary" href="#practice">开始练习　↗</a></div>
+<div class="stats"><div class="stat"><b>初中</b><span>七至九年级</span></div><div class="stat"><b>高中</b><span>高一至高三</span></div><div class="stat"><b>讲练结合</b><span>学、练、评</span></div><div class="stat"><b>循序渐进</b><span>夯实基础</span></div></div>
+</div><div class="heroCard"><h3>今日数学小课堂</h3><div class="sub">用一道例题，理解函数的变化规律</div><div class="mathBoard"><div style="font-size:12px;color:#667aa9">一次函数示例</div><div class="equation">y = 2x + 1</div><div style="font-size:13px;margin-top:8px">当 x = 3 时，y = 2 × 3 + 1 = 7</div></div><div class="miniGrid"><div class="mini"><b>① 看懂条件</b><small>找出已知量</small></div><div class="mini"><b>② 代入计算</b><small>按关系式求值</small></div><div class="mini"><b>③ 检查结果</b><small>核对计算过程</small></div><div class="mini"><b>④ 总结方法</b><small>举一反三</small></div></div></div></div>
+</div></section>
+<section id="courses"><div class="wrap">
+<div class="sectionHead"><div><div class="kicker">COURSE SYSTEM</div><h2>分学段课程体系</h2><p>根据学生所在年级，选择当前需要掌握的知识模块。</p></div><div class="gradeTabs" role="group" aria-label="选择学段"><button class="tab selected" data-grade="junior">初中数学</button><button class="tab" data-grade="senior">高中数学</button></div></div>
+<div class="courseGrid" id="courseGrid"></div>
+</div></section>
+<section id="lesson" style="padding-top:10px"><div class="wrap">
+<div class="sectionHead"><div><div class="kicker">SAMPLE LESSON</div><h2>示范课堂</h2><p>先理解概念，再观察例题，最后归纳解题方法。</p></div></div>
+<div class="split"><article class="panel"><span class="lessonTag" id="lessonTag">初中数学 · 函数</span><div class="lessonTitle" id="lessonTitle">一次函数的基本认识</div><p id="lessonIntro">一次函数通常写成 y = kx + b（k ≠ 0）。其中 x 是自变量，y 随 x 的变化而变化。</p><div class="formula" id="lessonFormula">y = 2x + 1</div><p><b>例题：</b><span id="lessonQuestion">已知 y = 2x + 1，当 x = 3 时，求 y。</span></p><ol class="steps" id="lessonSteps"><li>写出函数关系式：y = 2x + 1。</li><li>把 x = 3 代入：y = 2 × 3 + 1。</li><li>计算得到：y = 7。</li></ol><div class="callout" id="lessonTip">学习提醒：代入数值时，注意乘法与加减法的运算顺序。</div></article>
+<div class="practice" id="practice"><h3>随堂小测</h3><div class="muted">完成选择题，提交后查看解析。</div><div class="question" id="question">已知 y = 2x + 1，当 x = 3 时，y 等于多少？</div><div class="options" id="options"></div><div class="feedback" id="feedback" aria-live="polite"></div><div class="practiceActions"><button class="next" id="resetBtn">重新作答</button><button class="submit" id="submitBtn">提交答案</button></div></div></div>
+</div></section>
+<section id="teacher"><div class="wrap">
+<div class="sectionHead"><div><div class="kicker">ABOUT THE TEACHER</div><h2>教学理念与服务</h2><p>用清晰的讲解和有效的训练，让学生知道“为什么”，也知道“怎么做”。</p></div></div>
+<div class="teacherGrid"><div class="teacherVisual"><div class="symbol">∑</div><div><div style="font-size:12px;color:#d7e1ff">MATH EDUCATION</div><h3>数学进阶课堂</h3><p>关注理解、方法与思维成长</p></div></div><div class="teacherInfo"><h3>让每一步学习都有方向</h3><p>课程内容围绕学校教学进度与常见学习难点设计，兼顾基础巩固、能力提升和考试复习。教师可根据实际情况补充姓名、教龄、教学成果、授课方式与联系方式。</p><div class="featureList"><div class="feature"><b>知识系统化</b>梳理章节结构，厘清概念之间的联系。</div><div class="feature"><b>例题讲透彻</b>重视思路分析、步骤规范和方法总结。</div><div class="feature"><b>练习有梯度</b>从基础题到提升题，逐步建立信心。</div><div class="feature"><b>复习有重点</b>围绕易错点、常考点和薄弱环节安排训练。</div></div></div></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><div class="cta"><div><h2>从今天开始，稳步提升数学能力。</h2><p>选择一个知识模块，完成一节学习，再用练习检验理解。</p></div><a class="btn primary" href="#courses">选择课程 →</a></div></div></section>
+</main>
+<footer><div class="wrap"><div class="footerRow"><div><strong>∑ 数学进阶课堂</strong><div class="footerSmall">初高中数学教学与学习辅助网站</div></div><div class="footerSmall">网页演示版本 · 课程内容可按实际教学需求继续完善</div></div></div></footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalBox"><button class="close" id="closeModal">关闭 ✕</button><h3 id="modalTitle">课程详情</h3><p id="modalText"></p><ul id="modalList"></ul><a href="#lesson" class="btn primary" id="goLesson">查看示范课堂</a></div></div>
+<script>
+const courses={
+junior:[
+{icon:"➗",title:"数与式",desc:"实数、整式、分式、因式分解与运算。",detail:"建立代数基础，熟练掌握运算规则和常见变形。",list:["有理数与实数","整式的加减乘除","乘法公式与因式分解","分式与二次根式"]},
+{icon:"📐",title:"方程与不等式",desc:"从一元一次方程到一元二次方程。",detail:"学会分析数量关系，建立方程模型并规范求解。",list:["一元一次方程","二元一次方程组","一元一次不等式","一元二次方程"]},
+{icon:"📈",title:"函数与图像",desc:"一次函数、反比例函数、二次函数。",detail:"理解变量关系，掌握解析式、图像与性质。",list:["平面直角坐标系","一次函数","反比例函数","二次函数与应用"]},
+{icon:"📏",title:"几何图形",desc:"三角形、四边形、圆与几何证明。",detail:"从图形性质、定理和推理过程入手，训练几何思维。",list:["三角形与全等","相似三角形","四边形","圆与几何证明"]},
+{icon:"🎲",title:"统计与概率",desc:"数据整理、统计图表与概率计算。",detail:"理解数据特征，掌握常见统计量和简单概率。",list:["平均数、中位数与众数","统计图表","抽样调查","概率初步"]},
+{icon:"🎯",title:"中考专题",desc:"基础巩固、压轴题思路与考前复习。",detail:"按专题梳理高频考点，重视审题、步骤和时间分配。",list:["代数综合","几何综合","函数综合","模拟训练与错题复盘"]}
+],
+senior:[
+{icon:"📈",title:"集合与函数",desc:"集合基础、函数概念、性质与图像。",detail:"掌握函数三要素，理解单调性、奇偶性与图像变化。",list:["集合与常用逻辑用语","函数的概念与表示","单调性与奇偶性","指数、对数函数"]},
+{icon:"〰️",title:"三角函数",desc:"三角恒等变换、图像与周期性。",detail:"从单位圆和图像出发，理解公式并训练恒等变换。",list:["任意角与弧度制","三角函数图像","诱导公式","三角恒等变换"]},
+{icon:"🔢",title:"数列",desc:"等差数列、等比数列与求和。",detail:"识别数列规律，理解通项公式与求和方法。",list:["数列的概念","等差数列","等比数列","数列求和与综合应用"]},
+{icon:"🧊",title:"立体几何",desc:"空间位置关系、几何体与空间向量。",detail:"借助图形建立空间观念，规范证明线面关系。",list:["空间几何体","点线面位置关系","空间向量","体积与距离"]},
+{icon:"📍",title:"解析几何",desc:"直线、圆、椭圆、双曲线与抛物线。",detail:"建立几何条件与代数表达之间的联系。",list:["直线与圆的方程","椭圆","双曲线与抛物线","直线与圆锥曲线综合"]},
+{icon:"🏆",title:"高考专题",desc:"导数、概率统计、综合题与复习规划。",detail:"重视通性通法、关键步骤与综合应用能力。",list:["导数及其应用","概率与统计","解三角形","综合复习与模拟训练"]}
+]};
+const grid=document.getElementById("courseGrid"),tabs=[...document.querySelectorAll(".tab")];let grade="junior";
+function renderCourses(){grid.innerHTML="";courses[grade].forEach((c,i)=>{const el=document.createElement("article");el.className="course";el.innerHTML=`<div class="courseIcon">${c.icon}</div><h3>${c.title}</h3><p>${c.desc}</p><button type="button">查看课程内容　→</button>`;el.querySelector("button").addEventListener("click",()=>openCourse(c));grid.appendChild(el)});tabs.forEach(t=>t.classList.toggle("selected",t.dataset.grade===grade));updateLesson()}
+function openCourse(c){document.getElementById("modalTitle").textContent=c.title;document.getElementById("modalText").textContent=c.detail;const ul=document.getElementById("modalList");ul.innerHTML="";c.list.forEach(x=>{const li=document.createElement("li");li.textContent=x;ul.appendChild(li)});document.getElementById("modal").classList.add("open");}
+tabs.forEach(t=>t.addEventListener("click",()=>{grade=t.dataset.grade;renderCourses()}));
+document.getElementById("closeModal").addEventListener("click",()=>document.getElementById("modal").classList.remove("open"));
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("open")});
+document.getElementById("goLesson").addEventListener("click",()=>document.getElementById("modal").classList.remove("open"));
+const lessonData={
+junior:{tag:"初中数学 · 函数",title:"一次函数的基本认识",intro:"一次函数通常写成 y = kx + b（k ≠ 0）。其中 x 是自变量，y 随 x 的变化而变化。",formula:"y = 2x + 1",q:"已知 y = 2x + 1，当 x = 3 时，求 y。",steps:["写出函数关系式：y = 2x + 1。","把 x = 3 代入：y = 2 × 3 + 1。","计算得到：y = 7。"],tip:"学习提醒：代入数值时，注意乘法与加减法的运算顺序。"},
+senior:{tag:"高中数学 · 二次函数",title:"利用配方法理解二次函数",intro:"配方法可以把二次函数转化为顶点式，帮助我们分析图像的顶点与最值。",formula:"f(x) = x² − 4x + 3",q:"已知 f(x) = x² − 4x + 3，求 f(2)。",steps:["将 x = 2 代入函数表达式。","计算 f(2) = 2² − 4 × 2 + 3。","得到 f(2) = 4 − 8 + 3 = −1。"],tip:"学习提醒：代入负数时要注意括号；配方后可进一步分析函数的最小值。"}};
+function updateLesson(){const d=lessonData[grade];["lessonTag","lessonTitle","lessonIntro","lessonFormula","lessonQuestion","lessonTip"].forEach((id,i)=>document.getElementById(id).textContent=[d.tag,d.title,d.intro,d.formula,d.q,d.tip][i]);const ol=document.getElementById("lessonSteps");ol.innerHTML="";d.steps.forEach(s=>{let li=document.createElement("li");li.textContent=s;ol.appendChild(li)});renderQuestion()}
+const questions={
+junior:{q:"已知 y = 2x + 1，当 x = 3 时，y 等于多少？",opts:["A. 3","B. 5","C. 7","D. 9"],answer:2,explain:"把 x = 3 代入：y = 2 × 3 + 1 = 7，所以选 C。"},
+senior:{q:"已知 f(x) = x² − 4x + 3，则 f(2) 等于多少？",opts:["A. −1","B. 0","C. 1","D. 3"],answer:0,explain:"代入 x = 2：f(2) = 2² − 4 × 2 + 3 = 4 − 8 + 3 = −1，所以选 A。"}};
+let chosen=-1,submitted=false;
+function renderQuestion(){chosen=-1;submitted=false;const q=questions[grade];document.getElementById("question").textContent=q.q;const opts=document.getElementById("options");opts.innerHTML="";q.opts.forEach((v,i)=>{let b=document.createElement("button");b.className="option";b.textContent=v;b.type="button";b.addEventListener("click",()=>{if(submitted)return;chosen=i;[...opts.children].forEach((x,j)=>x.classList.toggle("chosen",i===j))});opts.appendChild(b)});const f=document.getElementById("feedback");f.style.display="none";f.textContent=""}
+document.getElementById("submitBtn").addEventListener("click",()=>{const f=document.getElementById("feedback");if(chosen<0){f.textContent="请先选择一个答案，再提交。";f.style.display="block";return}submitted=true;const q=questions[grade];[...document.getElementById("options").children].forEach((b,i)=>{if(i===q.answer)b.classList.add("correct");else if(i===chosen)b.classList.add("wrong")});f.textContent=(chosen===q.answer?"回答正确！":"再检查一下。")+q.explain;f.style.display="block"});
+document.getElementById("resetBtn").addEventListener("click",renderQuestion);
+document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("navlinks").classList.toggle("open"));
+document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=>{document.querySelectorAll(".navlinks a").forEach(x=>x.classList.remove("active"));a.classList.add("active");document.getElementById("navlinks").classList.remove("open")}));
+renderCourses();
+</script>
+</body>
+</html>
